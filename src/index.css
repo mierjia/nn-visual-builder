@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --nn-conv: #3b82f6;
+  --nn-pool: #8b5cf6;
+  --nn-fc: #10b981;
+  --nn-activation: #f59e0b;
+  --nn-transformer: #ec4899;
+  --nn-reshape: #6366f1;
+  --nn-concat: #14b8a6;
+  --nn-dropout: #64748b;
+  --nn-norm: #a855f7;
+}
+
+html {
+  /* 默认深色 */
+  color-scheme: dark;
+}
+
+html:not(.dark) {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── React Flow 节点 ─── */
+.react-flow__node {
+  border-radius: 8px;
+  font-size: 12px;
+  min-width: 120px;
+  text-align: center;
+}
+
+.react-flow__handle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #64748b;
+}
+
+/* ─── 深色模式下 React Flow 背景 ─── */
+.dark .react-flow__background {
+  background-color: #0f172a;
+}
+
+/* ─── 浅色模式下 React Flow 背景 ─── */
+html:not(.dark) .react-flow__background {
+  background-color: #f1f5f9;
+}
+
+/* ─── React Flow Controls (浅色) ─── */
+html:not(.dark) .react-flow__controls {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+html:not(.dark) .react-flow__controls-button {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  color: #475569;
+}
+
+html:not(.dark) .react-flow__controls-button:hover {
+  background: #f1f5f9;
+}
+
+/* ─── React Flow MiniMap (浅色) ─── */
+html:not(.dark) .react-flow__minimap {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+/* ─── NN 节点样式（保持彩色，两种模式通用） ─── */
+.nn-node {
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s;
+}
+
+.nn-node:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
+
+.nn-node.conv2d { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+.nn-node.maxpool, .nn-node.avgpool { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+.nn-node.fc { background: linear-gradient(135deg, #10b981, #059669); }
+.nn-node.relu, .nn-node.sigmoid, .nn-node.tanh, .nn-node.softmax { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.nn-node.dropout { background: linear-gradient(135deg, #64748b, #475569); }
+.nn-node.batchnorm, .nn-node.layernorm { background: linear-gradient(135deg, #a855f7, #9333ea); }
+.nn-node.reshape, .nn-node.flatten, .nn-node.transpose { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+.nn-node.concat, .nn-node.add { background: linear-gradient(135deg, #14b8a6, #0d9488); }
+.nn-node.attention, .nn-node.multihead_attention { background: linear-gradient(135deg, #ec4899, #db2777); }
+.nn-node.embedding { background: linear-gradient(135deg, #f472b6, #e879f9); }
+.nn-node.lstm, .nn-node.gru { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+.nn-node.input { background: linear-gradient(135deg, #22c55e, #16a34a); border: 2px solid #16a34a; }
+.nn-node.output { background: linear-gradient(135deg, #ef4444, #dc2626); border: 2px solid #dc2626; }
+
+/* ─── 代码字体 ─── */
+.code-preview {
+  font-family: 'Fira Code', 'JetBrains Mono', 'Monaco', 'Consolas', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.shape-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
